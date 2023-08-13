@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:viking/generated/assets.dart';
+import 'package:viking/ui/page/contact/contact.dart';
+import 'package:viking/ui/page/destinations/destinations.dart';
+import 'package:viking/ui/page/how_we_are/how_we_are.dart';
+import 'package:viking/ui/page/pricing/pricing.dart';
 import 'package:viking/ui/widgets/widgets.dart';
 
 class IndexScreen extends StatefulWidget {
@@ -13,18 +17,10 @@ class _IndexScreenState extends State<IndexScreen> {
   var index = 0;
 
   var pages = [
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
-    Container(
-      color: Colors.greenAccent,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
+    const HowWeAre(),
+    const Destinations(),
+    const Pricing(),
+    const Contact()
   ];
   List<String> images = [
     Assets.image1,
