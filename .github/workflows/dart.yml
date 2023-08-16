@@ -38,6 +38,11 @@ jobs:
       - name: Analyze project source
         run: dart analyze
 
-
       - name: build Webpage
         run: flutter build web
+
+      - name : release
+        uses: actions/upload-artifact@v1
+        with:
+          name: release web site
+          path: build/web/
