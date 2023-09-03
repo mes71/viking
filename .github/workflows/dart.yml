@@ -7,12 +7,17 @@ name: Dart
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "master","develop"  ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ "master","develop"  ]
+
+
 
 jobs:
   build:
+    env:
+      my_secret: ${{secrets.BUILD_TOKEN}}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +38,11 @@ jobs:
       - name: Analyze project source
         run: dart analyze
 
-
-
       - name: build Webpage
         run: flutter build web
+
+      - name : release
+        uses: actions/upload-artifact@v3
+        with:
+          name: release web site
+          path: build/web/
